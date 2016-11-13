@@ -1,7 +1,17 @@
 doctype html
-html
+html(lang="en", ng-app="app")
   head
+    meta(charset="utf-8")
     title= title
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-sanitize.js")
+    link(rel="stylesheet", href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css")
+
+    script(src="/javascripts/select.js")
+    link(rel="stylesheet", href="/stylesheets/select.css")
+
+    script(src="/javascripts/vyv.js")
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+
+  body(ng-controller="ctrl")
     block content
