@@ -1,0 +1,47 @@
+extends layout
+
+block content
+    div(ng-controller="listCtrl")
+        div(ng-repeat="p in profiles")
+            div(ng-if="$index % 4 === 0")
+                .clearfix.visible-md.visible-lg
+            div(ng-if="$index % 3 === 0")
+                .clearfix.visible-sm
+            .col-sm-4.col-md-3
+                .thumbnail
+                    img(src="images/male.jpg", height="250", width="200", ng-if="p.sex == 1")
+                    img(src="images/female.jpg", height="250",width="200", ng-if="p.sex == 0")
+                    .caption
+                        h4 {{p.Name}}
+                    h5
+                        b City:
+                        |  {{p.City}}
+                    h5
+                        b Ward:
+                        |  {{p.Ward}}
+                    h5
+                        b DoB:
+                        |  {{p.DoB}}
+                    h5
+                        b History:
+                        ul
+                            div(ng-repeat="(key, value) in p.history")
+                                li
+                                    b {{key}}:
+                                    | {{value}}
+
+                    a.btn.btn-primary(href="#", role="button")
+                        | Details
+                    hr
+                    a.btn.btn-default(href="#", role="button")
+                        | Facebook 
+                    a.btn.btn-default(href="#", role="button")
+                        | Twitter 
+                    a.btn.btn-default(href="#", role="button")
+                        | Website 
+
+
+
+
+
+

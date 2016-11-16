@@ -1,13 +1,14 @@
 extends layout
 
 block content
-  span
-      //| Selected: {name: {{selectedItem.name}},
-      //| id: {{selectedItem.id}}}
-      | Select City
-  ui-select(ng-model="selectedItem")
-    ui-select-match
-        span(ng-bind="$select.selected.name")
-    ui-select-choices(repeat="item in (itemArray | filter: $select.search) track by item.id")
-        span(ng-bind="item.name")
+  div(ng-controller="mainCtrl")
+      span
+          //| Selected: {name: {{selectedItem.name}},
+          //| id: {{selectedItem.id}}}
+          | Select City
+      ui-select(ng-model="selectedItem")
+        ui-select-match
+            span(ng-bind="$select.selected.name")
+        ui-select-choices(repeat="item in (itemArray | filter: $select.search) track by item.id")
+            span(ng-bind="item.name")
 

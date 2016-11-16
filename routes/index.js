@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Value Your Votes' });
 });
 
+router.get('/list', function(req, res, next) {
+  res.render('list', { title: 'listing' });
+});
+
 module.exports = router;
