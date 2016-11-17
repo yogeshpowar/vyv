@@ -116,7 +116,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
         }]
         */
     },{
-        Name: "Namrata Yogesh Powar",
+        Name: "Narmata Yogesh Powar",
         sex: 0,
         DoB: "20 Dec 1986",
         City: "Pune",
@@ -170,10 +170,8 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
         }
     }];
 
-    var initSelectArrs = function(profiles) {
+    var getCities = function(profiles) {
         var cities = [];
-        var wards = [];
-        var names = [];
         var i, j;
 
         for (i = 0; i < profiles.length; i++) {
@@ -189,7 +187,15 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
                     city: profiles[i].City
                 });
             }
+        }
+        $scope.cities = cities;
+    };
 
+    var getWards = function(profiles) {
+        var i, j;
+        var wards = [];
+
+        for (var i = 0; i < profiles.length; i++) {
             /* wards */
             for (j = 0; j < wards.length; j++) {
                 if (profiles[i].Ward === wards[j].ward) {
@@ -202,7 +208,16 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
                     ward: profiles[i].Ward
                 });
             }
+        }
 
+        $scope.wards = wards;
+    };
+
+    var getNames = function(profiles) {
+        var names = [];
+        var i, j;
+
+        for (var i = 0; i < profiles.length; i++) {
             /* wards */
             for (j = 0; j < names.length; j++) {
                 if (profiles[i].Name === names[j].name) {
@@ -216,16 +231,25 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
                 });
             }
         }
-        console.log(cities);
-        console.log(wards);
-        console.log(names);
+        $scope.names = names;
+    };
+
+    var initSelectArrs = function(profiles) {
+        getCities(profiles);
+        getWards(profiles);
+        getNames(profiles);
 
         $scope.profiles = profiles;
-        $scope.cities = cities;
-        $scope.wards = wards;
-        $scope.names = names;
         $scope.selCnt = profiles.length;
         $scope.totCnt = data.length;
+
+        $scope.city = {};
+        $scope.city.selected = undefined;
+        $scope.ward = {};
+        $scope.ward.selected = undefined;
+        $scope.name = {};
+        $scope.name.selected = undefined;
+
     };
 
     $scope.showAll = function() {
@@ -247,7 +271,6 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
                 profiles.push(data[i]);
             }
         }
-        initSelectArrs(profiles);
         $scope.profiles = profiles;
     };
 
@@ -260,7 +283,6 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
     $scope.name = {};
     $scope.name.selected = undefined;
 
-
     $scope.$watch('city.selected.city', function(newValue, oldValue) {
         if (newValue === undefined) {
             $scope.msgcity = "all the cities";
@@ -268,6 +290,8 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
         }
         $scope.msgcity = newValue + " city";
         filter('City', newValue);
+        getWards($scope.profiles);
+        getNames($scope.profiles);
     });
     $scope.$watch('ward.selected.ward', function(newValue, oldValue) {
          if (newValue === undefined) {
@@ -276,6 +300,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
          }
          $scope.msgward = newValue + " ward";
          filter('Ward', newValue);
+         getNames($scope.profiles);
     });
     $scope.$watch('name.selected.name', function(newValue, oldValue) {
           if (newValue === undefined) {
