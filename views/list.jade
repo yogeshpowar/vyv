@@ -2,6 +2,53 @@ extends layout
 
 block content
     div(ng-controller="listCtrl")
+        .panel.panel-default
+            .panel-body
+                form
+                    .form-group.col-sm-4.col-md-3
+                        label Select City {{selectedCity.city}}
+                        ui-select(ng-model="city.selected")
+                          ui-select-match
+                              span(ng-bind="$select.selected.city")
+                          ui-select-choices(repeat="item in (cities | filter: $select.search) track by item.id")
+                              span(ng-bind="item.city")
+
+                    .form-group.col-sm-4.col-md-3
+                        label Select Ward {{selectedWard.ward}}
+                        ui-select(ng-model="ward.selected")
+                          ui-select-match
+                              span(ng-bind="$select.selected.ward")
+                          ui-select-choices(repeat="item in (wards | filter: $select.search) track by item.id")
+                              span(ng-bind="item.ward")
+
+                    .form-group.col-sm-4.col-md-3
+                        label Select Candidate {{selectedName.name}}
+                        ui-select(ng-model="name.selected")
+                          ui-select-match
+                              span(ng-bind="$select.selected.name")
+                          ui-select-choices(repeat="item in (names | filter: $select.search) track by item.id")
+                              span(ng-bind="item.name")
+
+                    .form-group.col-sm-4.col-md-3
+                        div.text-center
+                            br
+                            a.button.btn.btn-primary(ng-click="showAll()") Show All
+
+        .panel.panel-default
+            .panel-body
+                p.text-center
+                    | Showing
+                    strong  {{selCnt}}
+                    |  /
+                    strong  {{totCnt}}
+                    |  results for
+                    b  {{msgcity}},
+                    b  {{msgward}}
+                    |  and
+                    b  {{msgname}}
+
+
+
         div(ng-repeat="p in profiles")
             div(ng-if="$index % 4 === 0")
                 .clearfix.visible-md.visible-lg

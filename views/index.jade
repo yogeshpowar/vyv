@@ -2,10 +2,10 @@ extends layout
 
 block content
    h1 Value Your Votes
-  //div(ng-controller="mainCtrl")
+   div(ng-controller="mainCtrl")
       span
-          //| Selected: {name: {{selectedItem.name}},
-          //| id: {{selectedItem.id}}}
+          | Selected: {name: {{selectedItem.name}},
+          | id: {{selectedItem.id}}}
           | Select City
       ui-select(ng-model="selectedItem")
         ui-select-match

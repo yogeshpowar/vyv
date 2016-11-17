@@ -1,4 +1,5 @@
-'use strict';
+//(function(){
+    'use strict';
 
 angular.module('vyv', ['ngSanitize', 'ui.select'])
 
@@ -15,7 +16,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
 }])
 
 .controller('listCtrl', ['$scope', function ($scope) {
-    $scope.profiles = [{
+    var data = [{
         Name: "Yogesh Ashok Powar",
         sex: 1,
         DoB: "14 Sep 1982",
@@ -168,5 +169,122 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
             "2000-2014": "Sarpanch",
         }
     }];
-}]);
 
+    var initSelectArrs = function(profiles) {
+        var cities = [];
+        var wards = [];
+        var names = [];
+        var i, j;
+
+        for (i = 0; i < profiles.length; i++) {
+            /* Cities */
+            for (j = 0; j < cities.length; j++) {
+                if (profiles[i].City === cities[j].city) {
+                    break;
+                }
+            }
+            if (j == cities.length) {
+                cities.push({
+                    id: j,
+                    city: profiles[i].City
+                });
+            }
+
+            /* wards */
+            for (j = 0; j < wards.length; j++) {
+                if (profiles[i].Ward === wards[j].ward) {
+                    break;
+                }
+            }
+            if (j == wards.length) {
+                wards.push({
+                    id: j,
+                    ward: profiles[i].Ward
+                });
+            }
+
+            /* wards */
+            for (j = 0; j < names.length; j++) {
+                if (profiles[i].Name === names[j].name) {
+                    break;
+                }
+            }
+            if (j == names.length) {
+                names.push({
+                    id: j,
+                    name: profiles[i].Name
+                });
+            }
+        }
+        console.log(cities);
+        console.log(wards);
+        console.log(names);
+
+        $scope.profiles = profiles;
+        $scope.cities = cities;
+        $scope.wards = wards;
+        $scope.names = names;
+        $scope.selCnt = profiles.length;
+        $scope.totCnt = data.length;
+    };
+
+    $scope.showAll = function() {
+        initSelectArrs(data);
+        $scope.profiles = data.slice();
+        $scope.msgcity = "all the cities";
+        $scope.msgward = "all the wards";
+        $scope.msgname = "all the profiles";
+        $scope.selCnt = profiles.length;
+        $scope.totCnt = data.length;
+
+        return;
+    };
+
+    var filter = function(param, value) {
+        var profiles = [];
+        for (var i = 0; i < data.length; i++) {
+            if (data[i][param] == value) {
+                profiles.push(data[i]);
+            }
+        }
+        initSelectArrs(profiles);
+        $scope.profiles = profiles;
+    };
+
+    initSelectArrs(data);
+
+    $scope.city = {};
+    $scope.city.selected = undefined;
+    $scope.ward = {};
+    $scope.ward.selected = undefined;
+    $scope.name = {};
+    $scope.name.selected = undefined;
+
+
+    $scope.$watch('city.selected.city', function(newValue, oldValue) {
+        if (newValue === undefined) {
+            $scope.msgcity = "all the cities";
+            return;
+        }
+        $scope.msgcity = newValue + " city";
+        filter('City', newValue);
+    });
+    $scope.$watch('ward.selected.ward', function(newValue, oldValue) {
+         if (newValue === undefined) {
+             $scope.msgward = "all the wards";
+             return;
+         }
+         $scope.msgward = newValue + " ward";
+         filter('Ward', newValue);
+    });
+    $scope.$watch('name.selected.name', function(newValue, oldValue) {
+          if (newValue === undefined) {
+              $scope.msgname = "all the profiles";
+              return;
+          }
+          $scope.msgname = "matching name as " + newValue;
+          filter('Name', newValue);
+    });
+
+}]);
+//}());
