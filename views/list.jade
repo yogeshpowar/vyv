@@ -56,10 +56,14 @@ block content
                 .clearfix.visible-sm
             .col-sm-4.col-md-3
                 .thumbnail
-                    img(src="images/male.jpg", height="250", width="200", ng-if="p.sex == 1")
-                    img(src="images/female.jpg", height="250",width="200", ng-if="p.sex == 0")
+                    img(src="images/{{p.Photo}}", height="250", width="200", ng-if="p.Photo")
+                    img(src="images/male.jpg", height="250", width="200", ng-if="!p.Photo && p.sex == 1")
+                    img(src="images/female.jpg", height="250",width="200", ng-if="!p.Photo && p.sex == 0")
                     .caption
                         h4 {{p.Name}}
+                    h5
+                        b Election:
+                        |  {{p.Election}}
                     h5
                         b City:
                         |  {{p.City}}
@@ -68,8 +72,16 @@ block content
                         |  {{p.Ward}}
                     h5
                         b DoB:
+
                         |  {{p.DoB}}
                     h5
+                        b Party:
+                        |  {{p.Party}}
+                    h5
+                        b Phone:
+                        |  {{p.Phone}}
+
+                    //h5
                         b History:
                         ul
                             div(ng-repeat="(key, value) in p.history")
@@ -77,14 +89,15 @@ block content
                                     b {{key}}:
                                     | {{value}}
 
-                    a.btn.btn-primary(href="#", role="button")
-                        | Details
+                    .text-right
+                        a.btn.btn-primary(href="#", role="button")
+                            | Details
                     hr
-                    a.btn.btn-default(href="#", role="button")
+                    a.btn.btn-default(href="{{p.Facebook}}", role="button", ng-if="p.Facebook")
                         | Facebook 
-                    a.btn.btn-default(href="#", role="button")
+                    a.btn.btn-default(href="", role="button", ng-if="p.Twitter")
                         | Twitter 
-                    a.btn.btn-default(href="#", role="button")
+                    a.btn.btn-default(href="{{p.Website}}", role="button", ng-if="p.Website")
                         | Website 
 
 

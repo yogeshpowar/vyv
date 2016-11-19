@@ -15,160 +15,12 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
     $scope.selectedItem = $scope.itemArray[0];
 }])
 
-.controller('listCtrl', ['$scope', function ($scope) {
-    var data = [{
-        Name: "Yogesh Ashok Powar",
-        sex: 1,
-        DoB: "14 Sep 1982",
-        City: "Pune",
-        Ward: "Ward # 1",
-        history: {
-            "2000-2004": "Sarpanch",
-            "2004-2005": "Sabhapati"
-        }
-            /*
-        History: [{
-            from: "2000",
-            to: "2004",
-            position: "Sarpanch"
-        }, {
-            from: "2004",
-            to: "2005",
-            position: "Sabhapati"
-        }]
-        */
-    },{
-        Name: "Amit Kate",
-        DoB: "14 Nov 1982",
-        sex: 1,
-        City: "Pune",
-        Ward: "Ward # 2",
-        history: {
-            "2000-2004": "Sarpanch",
-            "2004-2005": "Sabhapati"
-        }
-
-        /*
-        History: [{
-            from: "2000",
-            to: "2004",
-            position: "Sarpanch"
-        }, {
-            from: "2004",
-            to: "2005",
-            position: "Sabhapati"
-        }]
-        */
-
-    }, {
-        Name: "Deepti Amit Kate",
-        DoB: "14 Nov 1986",
-        sex: 0,
-        City: "Pune",
-        Ward: "Ward # 3",
-        history: {
-            "2000-2014": "Sarpanch",
-            "2001-2014": "Sarpanch",
-            "2002-2014": "Sarpanch",
-            "2003-2014": "Sarpanch",
-            "2004-2014": "Sarpanch",
-            "2005-2014": "Sarpanch",
-        }
-    },{
-        Name: "Namrata Yogesh Powar",
-        sex: 0,
-        DoB: "20 Dec 1986",
-        City: "Pune",
-        Ward: "Ward # 6",
-        history: {
-            "2010-2015": "RSS"
-        }
-            /*
-        History: [{
-            from: "2000",
-            to: "2004",
-            position: "Sarpanch"
-        }, {
-            from: "2004",
-            to: "2005",
-            position: "Sabhapati"
-        }]
-        */
-    },{
-        Name: "Yogesh Ashok Powar",
-        sex: 1,
-        DoB: "14 Sep 1982",
-        City: "Pune",
-        Ward: "Ward # 1",
-        history: {
-            "2000-2004": "Sarpanch",
-            "2004-2005": "Sabhapati"
-        }
-            /*
-        History: [{
-            from: "2000",
-            to: "2004",
-            position: "Sarpanch"
-        }, {
-            from: "2004",
-            to: "2005",
-            position: "Sabhapati"
-        }]
-        */
-    },{
-        Name: "Narmata Yogesh Powar",
-        sex: 0,
-        DoB: "20 Dec 1986",
-        City: "Pune",
-        Ward: "Ward # 6",
-        history: {
-            "2010-2015": "RSS"
-        }
-            /*
-        History: [{
-            from: "2000",
-            to: "2004",
-            position: "Sarpanch"
-        }, {
-            from: "2004",
-            to: "2005",
-            position: "Sabhapati"
-        }]
-        */
-    },{
-        Name: "Amit Kate",
-        DoB: "14 Nov 1982",
-        sex: 1,
-        City: "Pune",
-        Ward: "Ward # 2",
-        history: {
-            "2000-2004": "Sarpanch",
-            "2004-2005": "Sabhapati",
-            "2005-2005": "Sabhapati",
-        }
-
-        /*
-        History: [{
-            from: "2000",
-            to: "2004",
-            position: "Sarpanch"
-        }, {
-            from: "2004",
-            to: "2005",
-            position: "Sabhapati"
-        }]
-        */
-
-    }, {
-        Name: "Deepti Amit Kate",
-        DoB: "14 Nov 1986",
-        sex: 0,
-        City: "Pune",
-        Ward: "Ward # 3",
-        history: {
-            "2000-2014": "Sarpanch",
-        }
-    }];
+.controller('listCtrl', ['$scope', '$http', function ($scope, $http) {
+    var data = [];
+    $http.get('/profiles').success(function (data1) {
+        data = data1;
+        initSelectArrs(data);
+    });
 
     var getCities = function(profiles) {
         var cities = [];
@@ -274,7 +126,6 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
         $scope.profiles = profiles;
     };
 
-    initSelectArrs(data);
 
     $scope.city = {};
     $scope.city.selected = undefined;
