@@ -1,8 +1,44 @@
 [
-{"Id":1001,"Election":"PCMC 2017","Photo":"1001.jpg","Name":"Anil Balkrishna Kate","DoB":"","Sex":"Male","City":"Pimpri-Chinchwad","Ward":28,"Party":"Shivsena","Phone":919881611751,"Email":"anilkate05@gmail.com","Website":"http://www.anilkate.com/","Facebook":"https://www.facebook.com/Minakshi-Anil-Kate-1697839590538657/"}
+{"Id":1001,"Election":"PCMC 2017","Photo":"1001.jpg","Name":"Anil Balkrishna Kate","DoB":"30 May 1973","Sex":1,"City":"Pimpri-Chinchwad","Ward":28,"Party":"Shivsena","Phone":919881611751,"Email":"anilkate05@gmail.com","Website":"http://www.anilkate.com/","Facebook":"https://www.facebook.com/Minakshi-Anil-Kate-1697839590538657/"}
 ,
-{"Id":1002,"Election":"PCMC 2017","Photo":"1002.png","Name":"Minakshi Anil Kate","DoB":"","Sex":"Female","City":"Pimpri-Chinchwad","Ward":28,"Party":"Shivsena","Phone":919823250103,"Email":"meenakshikate@gmail.com","Website":"http://www.minakshikate.com/","Facebook":"https://www.facebook.com/Minakshi-Anil-Kate-1697839590538657/"}
+{"Id":1002,"Election":"PCMC 2017","Photo":"1002.png","Name":"Minakshi Anil Kate","DoB":"6 June 1980","Sex":0,"City":"Pimpri-Chinchwad","Ward":28,"Party":"Shivsena","Phone":919823250103,"Email":"meenakshikate@gmail.com","Website":"http://www.minakshikate.com/","Facebook":"https://www.facebook.com/Minakshi-Anil-Kate-1697839590538657/"}
 ,
-{"Id":1003,"Election":"PCMC 2017","Photo":"1003.png","Name":"Shatrughna (Bapu) Kate","DoB":"20 April 1976","Sex":"Male","City":"Pimpri-Chinchwad","Ward":"-","Party":"","Phone":919850598100,"Email":"shatrughnkate@gmail.com","Website":"http://www.shatrughnakate.com","Facebook":"https://www.facebook.com/Shatrughna.Kate/"}
+{"Id":1003,"Election":"PCMC 2017","Photo":"1003.png","Name":"Shatrughna (Bapu) Kate","DoB":"20 April 1976","Sex":1,"City":"Pimpri-Chinchwad","Ward":28,"Party":null,"Phone":919850598100,"Email":"shatrughnkate@gmail.com","Website":"http://www.shatrughnakate.com","Facebook":"https://www.facebook.com/Shatrughna.Kate/"}
+,
+{"Id":1004,"Election":"PCMC 2017","Photo":null,"Name":"Nana Kate","DoB":"15 August","Sex":1,"City":"Pimpri-Chinchwad","Ward":28,"Party":"NCP","Phone":919011115555,"Email":"nanasahebkate@gmail.com","Website":"http://www.nanakate.org","Facebook":"https://www.facebook.com/nanakateofficial/"}
+,
+{"Id":1005,"Election":"PCMC 2017","Photo":null,"Name":"Sheetal Nana Kate","DoB":null,"Sex":0,"City":"Pimpri-Chinchwad","Ward":28,"Party":"NCP","Phone":919011115555,"Email":"nanasahebkate@gmail.com","Website":"http://www.nanakate.org","Facebook":"https://www.facebook.com/nanakateofficial/"}
+,
+{"Id":1006,"Election":"PCMC 2017","Photo":null,"Name":"Poornima Ravindra (Appa) Sonawane","DoB":null,"Sex":0,"City":"Pimpri-Chinchwad","Ward":null,"Party":"NCP","Phone":918888896959,"Email":null,"Website":null,"Facebook":null}
+,
+{"Id":1007,"Election":"PCMC 2017","Photo":null,"Name":"Shantaram Kondiba Bhalekar alias S.K.Bapu","DoB":"18 February 1965","Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"NCP","Phone":919822764641,"Email":null,"Website":null,"Facebook":"https://www.facebook.com/shantaram.bhalekar"}
+,
+{"Id":1008,"Election":"PCMC 2017","Photo":null,"Name":"Suresh Rangnath Mehtre","DoB":null,"Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"Independant","Phone":919822038521,"Email":null,"Website":null,"Facebook":null}
+,
+{"Id":1009,"Election":"PCMC 2017","Photo":null,"Name":"Aruna Dilip Bhalekar","DoB":null,"Sex":0,"City":"Pimpri-Chinchwad","Ward":null,"Party":"Independant","Phone":919922430124,"Email":null,"Website":null,"Facebook":null}
+,
+{"Id":1010,"Election":"PCMC 2017","Photo":null,"Name":"Swati Pramod Sane","DoB":null,"Sex":0,"City":"Pimpri-Chinchwad","Ward":null,"Party":"NCP","Phone":919922399699,"Email":null,"Website":null,"Facebook":null}
+,
+{"Id":1011,"Election":"PCMC 2017","Photo":null,"Name":"Dattatray Baburao (Kaka) Sane","DoB":"13 August 1970","Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"NCP","Phone":919822199599,"Email":null,"Website":null,"Facebook":"https://www.facebook.com/datta.sane"}
+,
+{"Id":1012,"Election":"PCMC 2017","Photo":null,"Name":"Vanita Eknath Thorat","DoB":null,"Sex":0,"City":"Pimpri-Chinchwad","Ward":null,"Party":"NCP","Phone":919552565656,"Email":null,"Website":null,"Facebook":"https://www.facebook.com/vanita.thorat.543?fref=ts"}
+,
+{"Id":1013,"Election":"PCMC 2017","Photo":null,"Name":"Ajay Shankarrao Saykar","DoB":null,"Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"Shivsena","Phone":919545954535,"Email":null,"Website":null,"Facebook":null}
+,
+{"Id":1014,"Election":"PCMC 2017","Photo":null,"Name":"Sadhana Ramdas Jadhav","DoB":null,"Sex":0,"City":"Pimpri-Chinchwad","Ward":null,"Party":"NCP","Phone":919921721024,"Email":null,"Website":null,"Facebook":null}
+,
+{"Id":1015,"Election":"PCMC 2017","Photo":null,"Name":"Rahul Gulab Jadhav","DoB":null,"Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"MNS","Phone":919665463636,"Email":null,"Website":null,"Facebook":null}
+,
+{"Id":1016,"Election":"PCMC 2017","Photo":null,"Name":"Manda Uttam Allhat","DoB":null,"Sex":0,"City":"Pimpri-Chinchwad","Ward":null,"Party":"NCP","Phone":917350080495,"Email":null,"Website":null,"Facebook":null}
+,
+{"Id":1017,"Election":"PCMC 2017","Photo":null,"Name":"Dhananjay Murlidhar Allhat","DoB":null,"Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"Shivsena","Phone":919850549598,"Email":null,"Website":null,"Facebook":null}
+,
+{"Id":1018,"Election":"PCMC 2017","Photo":null,"Name":"Nitin Pratap Kalje","DoB":null,"Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"NCP","Phone":919850502900,"Email":null,"Website":null,"Facebook":null}
+,
+{"Id":1019,"Election":"PCMC 2017","Photo":null,"Name":"Vinaya Pradeep (Aaba) Tapkir","DoB":null,"Sex":0,"City":"Pimpri-Chinchwad","Ward":null,"Party":"NCP","Phone":919850259231,"Email":null,"Website":null,"Facebook":"https://www.facebook.com/profile.php?id=100004900878591&fref=hovercard"}
+,
+{"Id":1020,"Election":"PCMC 2017","Photo":null,"Name":"Ram Sambhaji Patre","DoB":null,"Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"Shivsena","Phone":919767383542,"Email":null,"Website":null,"Facebook":null}
+,
+{"Id":1021,"Election":"PCMC 2017","Photo":null,"Name":"Sharada Prakash Babar","DoB":null,"Sex":0,"City":"Pimpri-Chinchwad","Ward":null,"Party":"Shivsena","Phone":919822802080,"Email":null,"Website":null,"Facebook":null}
 
 ]

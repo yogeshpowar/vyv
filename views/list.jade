@@ -56,9 +56,11 @@ block content
                 .clearfix.visible-sm
             .col-sm-4.col-md-3
                 .thumbnail
-                    img(src="images/{{p.Photo}}", height="250", width="200", ng-if="p.Photo")
-                    img(src="images/male.jpg", height="250", width="200", ng-if="!p.Photo && p.sex == 1")
-                    img(src="images/female.jpg", height="250",width="200", ng-if="!p.Photo && p.sex == 0")
+                    div(ng-if="p.Photo && p.Photo.length > 0")
+                        img(src="images/{{p.Photo}}", height="250", width="200")
+                    div(ng-if="!(p.Photo && p.Photo.length > 0)")
+                        img(src="images/male.jpg", height="250", width="200", ng-if="p.Sex == 1")
+                        img(src="images/female.jpg", height="250",width="200", ng-if="p.Sex == 0")
                     .caption
                         h4 {{p.Name}}
                     h5
