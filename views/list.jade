@@ -57,11 +57,11 @@ block content
             .col-sm-4.col-md-3
                 .thumbnail
                     div(ng-if="p.Photo && p.Photo.length > 0")
-                        img(src="images/{{p.Photo}}", height="250", width="200")
+                        img.img-thumbnail.center-block(src="images/{{p.Photo}}", height=140)
                     div(ng-if="!(p.Photo && p.Photo.length > 0)")
-                        img(src="images/male.jpg", height="250", width="200", ng-if="p.Sex == 1")
-                        img(src="images/female.jpg", height="250",width="200", ng-if="p.Sex == 0")
-                    .caption
+                        img.img-thumbnail.center-block(src="images/male.jpg", height=140, ng-if="p.Sex == 1")
+                        img.img-thumbnail.center-block(src="images/female.jpg", height=140, ng-if="p.Sex == 0")
+                    .caption.text-center
                         h4 {{p.Name}}
                     h5
                         b Election:
@@ -91,9 +91,8 @@ block content
                                     b {{key}}:
                                     | {{value}}
 
-                    .text-right
-                        a.btn.btn-primary(href="#", role="button")
-                            | Details
+                    h5
+                        a.btn.btn-primary(href="#", role="button") Profile Details
                     hr
                     a.btn.btn-default(href="{{p.Facebook}}", role="button", ng-if="p.Facebook")
                         | Facebook 
