@@ -124,6 +124,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
             }
         }
         $scope.profiles = profiles;
+        $scope.selCnt = profiles.length;
     };
 
 
