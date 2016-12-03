@@ -146,7 +146,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
 
     var filter = function(param, value) {
         var profiles = [];
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < $scope.profiles.length; i++) {
             if (data[i][param] == value) {
                 profiles.push(data[i]);
             }
@@ -194,7 +194,6 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
          $scope.msgward = newValue + " party";
          filter('Party', newValue);
          getWards($scope.profiles);
-         getParties($scope.profiles);
          getNames($scope.profiles);
     });
     $scope.$watch('name.selected.name', function(newValue, oldValue) {
@@ -203,7 +202,9 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
               return;
           }
           $scope.msgname = "matching name as " + newValue;
-          filter('Name', newValue);
+          getWards($scope.profiles);
+          getParties($scope.profiles);
+          getNames($scope.profiles);
     });
 
 }])
