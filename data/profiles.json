@@ -11,7 +11,7 @@
 ,
 {"Id":1006,"Election":"PCMC 2017","Photo":null,"Name":"Poornima Ravindra (Appa) Sonawane","DoB":null,"Sex":0,"City":"Pimpri-Chinchwad","Ward":null,"Party":"NCP","Phone":918888896959,"Email":null,"Website":null,"Facebook":null}
 ,
-{"Id":1007,"Election":"PCMC 2017","Photo":null,"Name":"Shantaram Kondiba Bhalekar alias S.K.Bapu","DoB":"18 February 1965","Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"NCP","Phone":919822764641,"Email":null,"Website":null,"Facebook":"https://www.facebook.com/shantaram.bhalekar"}
+{"Id":1007,"Election":"PCMC 2017","Photo":null,"Name":"Shantaram Kondiba Bhalekar","DoB":"18 February 1965","Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"NCP","Phone":919822764641,"Email":null,"Website":null,"Facebook":"https://www.facebook.com/shantaram.bhalekar"}
 ,
 {"Id":1008,"Election":"PCMC 2017","Photo":null,"Name":"Suresh Rangnath Mehtre","DoB":null,"Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"Independent","Phone":919822038521,"Email":null,"Website":null,"Facebook":null}
 ,
@@ -199,6 +199,6 @@
 ,
 {"Id":1100,"Election":"PCMC 2017","Photo":null,"Name":"Vimaltai Suresh Jagtap","DoB":null,"Sex":0,"City":"Pimpri-Chinchwad","Ward":null,"Party":"Shivsena","Phone":919422511607,"Email":null,"Website":null,"Facebook":null}
 ,
-{"Id":1101,"Election":"PCMC 2017","Photo":null,"Name":"Appa alias Sampat Dynoba Pawar","DoB":null,"Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"Shivsena","Phone":918007811818,"Email":null,"Website":null,"Facebook":null}
+{"Id":1101,"Election":"PCMC 2017","Photo":null,"Name":"Sampat Dynoba Pawar","DoB":null,"Sex":1,"City":"Pimpri-Chinchwad","Ward":null,"Party":"Shivsena","Phone":918007811818,"Email":null,"Website":null,"Facebook":null}
 
 ]
