@@ -86,9 +86,31 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
         $scope.names = names;
     };
 
+    var getParties = function(profiles) {
+        var parties = [];
+        var i, j;
+
+        for (var i = 0; i < profiles.length; i++) {
+            /* Party */
+            for (j = 0; j < parties.length; j++) {
+                if (profiles[i].Party === parties[j].party) {
+                    break;
+                }
+            }
+            if (j == parties.length) {
+                parties.push({
+                    id: j,
+                    party: profiles[i].Party
+                });
+            }
+        }
+        $scope.parties = parties;
+    };
+
     var initSelectArrs = function(profiles) {
         getCities(profiles);
         getWards(profiles);
+        getParties(profiles);
         getNames(profiles);
 
         $scope.profiles = profiles;
@@ -99,9 +121,10 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
         $scope.city.selected = undefined;
         $scope.ward = {};
         $scope.ward.selected = undefined;
+        $scope.party= {};
+        $scope.party.selected = undefined;
         $scope.name = {};
         $scope.name.selected = undefined;
-
     };
 
     $scope.showAll = function() {
@@ -109,6 +132,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
         $scope.profiles = data.slice();
         $scope.msgcity = "all the cities";
         $scope.msgward = "all the wards";
+        $scope.msgparty = "all the parties";
         $scope.msgname = "all the profiles";
         $scope.selCnt = profiles.length;
         $scope.totCnt = data.length;
@@ -132,6 +156,8 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
     $scope.city.selected = undefined;
     $scope.ward = {};
     $scope.ward.selected = undefined;
+    $scope.party= {};
+    $scope.party.selected = undefined;
     $scope.name = {};
     $scope.name.selected = undefined;
 
@@ -143,6 +169,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
         $scope.msgcity = newValue + " city";
         filter('City', newValue);
         getWards($scope.profiles);
+        getParties($scope.profiles);
         getNames($scope.profiles);
     });
     $scope.$watch('ward.selected.ward', function(newValue, oldValue) {
@@ -152,6 +179,18 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
          }
          $scope.msgward = newValue + " ward";
          filter('Ward', newValue);
+         getParties($scope.profiles);
+         getNames($scope.profiles);
+    });
+    $scope.$watch('party.selected.party', function(newValue, oldValue) {
+         if (newValue === undefined) {
+             $scope.msgparty = "all the parties";
+             return;
+         }
+         $scope.msgward = newValue + " party";
+         filter('Party', newValue);
+         getWards($scope.profiles);
+         getParties($scope.profiles);
          getNames($scope.profiles);
     });
     $scope.$watch('name.selected.name', function(newValue, oldValue) {
