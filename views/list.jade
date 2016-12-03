@@ -71,7 +71,9 @@ block content
                         img.img-thumbnail.center-block(src="images/male.jpg", height=140, ng-if="p.Sex == 1")
                         img.img-thumbnail.center-block(src="images/female.jpg", height=140, ng-if="p.Sex == 0")
                     .caption.text-center
-                        h4 {{p.Name}}
+                        p
+                            strong
+                                {{p.Name}}
                     h5
                         b Election:
                         |  {{p.Election}}
@@ -103,12 +105,20 @@ block content
                     h5
                         a.btn.btn-primary(href="#", role="button") Profile Details
                     hr
-                    a.btn.btn-default(href="{{p.Facebook}}", role="button", ng-if="p.Facebook")
+                    a.btn.btn-default(target="_blank", href="{{p.Facebook}}", role="button", ng-if="p.Facebook")
                         | Facebook 
-                    a.btn.btn-default(href="", role="button", ng-if="p.Twitter")
+                    a.btn.btn-default(target="_blank", href="", role="button", ng-if="p.Twitter")
                         | Twitter 
-                    a.btn.btn-default(href="{{p.Website}}", role="button", ng-if="p.Website")
+                    a.btn.btn-default(target="_blank", href="{{p.Website}}", role="button", ng-if="p.Website")
                         | Website 
+                    a.btn.btn-default(target="_blank", disabled="disabled", href="{{p.Facebook}}", role="button", ng-if="!p.Facebook")
+                        | Facebook 
+                    a.btn.btn-default(target="_blank", disabled="disabled", href="", role="button", ng-if="!p.Twitter")
+                        | Twitter 
+                    a.btn.btn-default(target="_blank", disabled="disabled", href="{{p.Website}}", role="button", ng-if="!p.Website")
+                        | Website 
+
+
 
         .clearfix
         .panel.panel-default
