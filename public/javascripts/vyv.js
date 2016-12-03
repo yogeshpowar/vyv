@@ -22,6 +22,18 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
         initSelectArrs(data);
     });
 
+    var sortByAlpha = function (arr, key) {
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = i; j < arr.length; j++) {
+                if (arr[i][key] > arr[j][key]) {
+                    var tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tmp;
+                }
+            }
+        }
+    };
+
     var getCities = function(profiles) {
         var cities = [];
         var i, j;
@@ -40,6 +52,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
                 });
             }
         }
+        sortByAlpha(cities, 'city');
         $scope.cities = cities;
     };
 
@@ -62,6 +75,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
             }
         }
 
+        sortByAlpha(wards, 'ward');
         $scope.wards = wards;
     };
 
@@ -83,6 +97,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
                 });
             }
         }
+        sortByAlpha(names, 'name');
         $scope.names = names;
     };
 
@@ -104,6 +119,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
                 });
             }
         }
+        sortByAlpha(parties, 'party');
         $scope.parties = parties;
     };
 
