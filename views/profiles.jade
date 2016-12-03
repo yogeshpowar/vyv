@@ -1,0 +1,42 @@
+extends layout
+block content
+    .col-md-2.col-sm-2.col-lg-2.col-xs-2
+    .col-md-8.col-sm-8.col-lg-8.col-xs-8
+        .col-md-4.col-sm-8.col-lg-4.col-xs-8
+            img.img-thumbnail.center-block(src="/images/#{Photo}", height=140)
+            .caption.text-center
+                p
+                    strong #{Name}
+
+        .col-md-6.col-sm-8.col-lg-6.col-xs-8
+            h5
+                b Election:
+                |  #{Election}
+            h5
+                b City:
+                |  #{City}
+            h5
+                b Ward:
+                |  #{Ward}
+            h5
+                b DoB:
+
+                |  #{DoB}
+            h5
+                b Party:
+                |  #{Party}
+            h5
+                b Phone:
+                |  #{Phone}
+
+            h5
+                if Facebook
+                    a.btn.btn-default(target="_blank", href=Facebook, role="button") Facebook
+                if Twitter
+                    a.btn.btn-default(target="_blank", href=Twitter, role="button") Twitter
+                if Website
+                    a.btn.btn-default(target="_blank", href=Website, role="button") Website
+
+        .row
+        div(ng-controller="profileCtrl")
+            div(ng-bind-html="profileRawHTML")
