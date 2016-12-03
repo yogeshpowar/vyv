@@ -1,5 +1,4 @@
 extends layout
-
 block content
     div(ng-controller="listCtrl")
         .panel.panel-default
@@ -65,11 +64,19 @@ block content
                 .clearfix.visible-sm
             .col-sm-4.col-md-3
                 .thumbnail
-                    div(ng-if="p.Photo && p.Photo.length > 0")
-                        img.img-thumbnail.center-block(src="images/{{p.Photo}}", height=140)
-                    div(ng-if="!(p.Photo && p.Photo.length > 0)")
-                        img.img-thumbnail.center-block(src="images/male.jpg", height=140, ng-if="p.Sex == 1")
-                        img.img-thumbnail.center-block(src="images/female.jpg", height=140, ng-if="p.Sex == 0")
+                    div(ng-if="p.Profile")
+                        a(href="/profiles/details?id={{p.Id}}")
+                            div(ng-if="p.Photo && p.Photo.length > 0")
+                                img.img-thumbnail.center-block(src="images/{{p.Photo}}", height=140)
+                            div(ng-if="!(p.Photo && p.Photo.length > 0)")
+                                img.img-thumbnail.center-block(src="images/male.jpg", height=140, ng-if="p.Sex == 1")
+                                img.img-thumbnail.center-block(src="images/female.jpg", height=140, ng-if="p.Sex == 0")
+                    div(ng-if="!p.Profile")
+                        div(ng-if="p.Photo && p.Photo.length > 0")
+                            img.img-thumbnail.center-block(src="images/{{p.Photo}}", height=140)
+                        div(ng-if="!(p.Photo && p.Photo.length > 0)")
+                            img.img-thumbnail.center-block(src="images/male.jpg", height=140, ng-if="p.Sex == 1")
+                            img.img-thumbnail.center-block(src="images/female.jpg", height=140, ng-if="p.Sex == 0")
                     .caption.text-center
                         p
                             strong
@@ -103,7 +110,8 @@ block content
                                     | {{value}}
 
                     h5
-                        a.btn.btn-primary(href="#", role="button") Profile Details
+                        a.btn.btn-primary(href="/profiles/details?id={{p.Id}}", role="button", ng-if="p.Profile") Profile Details
+                        a.btn.btn-primary(href="#", role="button", ng-if="!p.Profile", disabled="disabled") Profile Details
                     hr
                     a.btn.btn-default(target="_blank", href="{{p.Facebook}}", role="button", ng-if="p.Facebook")
                         | Facebook 

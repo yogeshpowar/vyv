@@ -3,18 +3,6 @@
 
 angular.module('vyv', ['ngSanitize', 'ui.select'])
 
-.controller('mainCtrl', ['$scope', function ($scope) {
-    $scope.itemArray = [
-        {id: 1, name: 'Pune'},
-        {id: 2, name: 'Pimpri and Chinchwad'},
-        {id: 3, name: 'Kolhapur'},
-        {id: 4, name: 'Satara'},
-        {id: 5, name: 'Nashik'},
-    ];
-
-    $scope.selectedItem = $scope.itemArray[0];
-}])
-
 .controller('listCtrl', ['$scope', '$http', function ($scope, $http) {
     var data = [];
     $http.get('/profiles').success(function (data1) {
@@ -218,5 +206,11 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
           filter('Name', newValue);
     });
 
+}])
+
+.controller('profileCtrl', ['$scope', '$http', function ($scope, $http) {
+    $http.get('/profiles/1001.html').success(function (profile) {
+        $scope.profileRawHTML = profile;
+    });
 }]);
 //}());
