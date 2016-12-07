@@ -7,8 +7,41 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
     var data = [];
     $http.get('/profiles').success(function (data1) {
         data = data1;
-        initSelectArrs(data);
+        initSelectArrs(randomize(data));
     });
+    var shuffle = function (array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+        return array;
+    };
+
+    var randomize = function(profiles) {
+        var premium = [];
+        var free = [];
+
+        for (var i = 0; i < profiles.length; i++) {
+            if (profiles[i].Photo) {
+                premium.push(profiles[i]);
+            } else {
+                free.push(profiles[i]);
+            }
+        }
+        premium = shuffle(premium);
+        free = shuffle(free);
+        return premium.concat(free);
+    };
 
     var sortByAlpha = function (arr, key) {
         for (var i = 0; i < arr.length; i++) {
@@ -48,7 +81,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
         var i, j;
         var wards = [];
 
-        for (var i = 0; i < profiles.length; i++) {
+        for (i = 0; i < profiles.length; i++) {
             /* wards */
             for (j = 0; j < wards.length; j++) {
                 if (profiles[i].Ward === wards[j].ward) {
@@ -71,7 +104,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
         var names = [];
         var i, j;
 
-        for (var i = 0; i < profiles.length; i++) {
+        for (i = 0; i < profiles.length; i++) {
             /* wards */
             for (j = 0; j < names.length; j++) {
                 if (profiles[i].Name === names[j].name) {
@@ -93,7 +126,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
         var parties = [];
         var i, j;
 
-        for (var i = 0; i < profiles.length; i++) {
+        for (i = 0; i < profiles.length; i++) {
             /* Party */
             for (j = 0; j < parties.length; j++) {
                 if (profiles[i].Party === parties[j].party) {
@@ -133,12 +166,12 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
 
     $scope.showAll = function() {
         initSelectArrs(data);
-        $scope.profiles = data.slice();
+        $scope.profiles = randomize(data.slice());
         $scope.msgcity = "all the cities";
         $scope.msgward = "all the wards";
         $scope.msgparty = "all the parties";
         $scope.msgname = "all the profiles";
-        $scope.selCnt = profiles.length;
+        $scope.selCnt = $scope.profiles.length;
         $scope.totCnt = data.length;
 
         return;
