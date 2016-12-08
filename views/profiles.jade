@@ -38,5 +38,5 @@ block content
                     a.btn.btn-default(target="_blank", href=Website, role="button") Website
 
         .row
-        div(ng-controller="profileCtrl")
+        div(ng-controller="profileCtrl", ng-init="fetchProfile(" + Id +")")
             div(ng-bind-html="profileRawHTML")

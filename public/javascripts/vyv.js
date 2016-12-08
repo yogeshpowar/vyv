@@ -235,6 +235,7 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
               return;
           }
           $scope.msgname = "matching name as " + newValue;
+          filter('Name', newValue);
           getWards($scope.profiles);
           getParties($scope.profiles);
           getNames($scope.profiles);
@@ -243,8 +244,11 @@ angular.module('vyv', ['ngSanitize', 'ui.select'])
 }])
 
 .controller('profileCtrl', ['$scope', '$http', function ($scope, $http) {
-    $http.get('/profiles/1001.html').success(function (profile) {
-        $scope.profileRawHTML = profile;
-    });
+    var fetch = function(id) {
+        $http.get('/profiles/' + id + '.html').success(function (profile) {
+            $scope.profileRawHTML = profile;
+        });
+    };
+    $scope.fetchProfile = fetch;
 }]);
 //}());
