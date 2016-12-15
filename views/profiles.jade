@@ -1,13 +1,14 @@
 extends layout
 block content
     .col-md-2.col-sm-2.col-lg-2.col-xs-2
+        div
+            img.img-thumbnail.center-block(src="/images/#{Party}.jpg", height=140)
     .col-md-8.col-sm-8.col-lg-8.col-xs-8
         .col-md-4.col-sm-8.col-lg-4.col-xs-8
             img.img-thumbnail.center-block(src="/images/#{Photo}", height=140)
             .caption.text-center
                 p
                     strong #{Name}
-
         .col-md-6.col-sm-8.col-lg-6.col-xs-8
             h5
                 b Election:
@@ -43,3 +44,7 @@ block content
         .row
         div(ng-controller="profileCtrl", ng-init="fetchProfile(" + Id +")")
             div(ng-bind-html="profileRawHTML")
+    .col-md-2.col-sm-2.col-lg-2.col-xs-2
+        div
+            img.img-thumbnail.center-block(src="/images/#{Party}.jpg", height=140)
+
